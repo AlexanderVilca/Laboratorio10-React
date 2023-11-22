@@ -32,3 +32,8 @@ class ProductoViewSet(viewsets.ModelViewSet):
 class ProductoView(generics.ListAPIView):
     queryset = Producto.objects.all()
     serializer_class = ProductoSerializer
+
+class ProductoDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Producto.objects.all()
+    lookup_url_kwarg = 'producto_id'
+    serializer_class = ProductoSerializer
