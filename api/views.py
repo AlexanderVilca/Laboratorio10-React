@@ -37,3 +37,14 @@ class ProductoDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Producto.objects.all()
     lookup_url_kwarg = 'producto_id'
     serializer_class = ProductoSerializer
+    
+class CrearProductoView(generics.CreateAPIView):
+    queryset = Producto.objects.all()
+    serializer_class = ProductoSerializer
+
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        headers = self.get_success_headers(serializer.data)
+        return Response(serializer.data, status= status.HTTP_201_CREATED, headers=headers)
