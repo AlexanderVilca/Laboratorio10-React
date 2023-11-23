@@ -51,8 +51,12 @@ th {
   table {
     font-size: 14px;
   }
+}
 
-  th, td {
-    padding: 8px;
-  }
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
 }
