@@ -13,5 +13,6 @@ urlpatterns = [
     path('producto',views.ProductoView.as_view()),
     path('categoria/<int:categoria_id>',views.CategoriaDetailView.as_view()),
     path('producto/<int:producto_id>',views.ProductoDetailView.as_view()),
+    path('crear_producto/', views.CrearProductoView.as_view(), name='crear_producto'),
     path('admin/',include(router.urls))
 ]
